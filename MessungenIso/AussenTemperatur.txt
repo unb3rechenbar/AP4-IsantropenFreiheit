@@ -1,4 +1,4 @@
 # Außentemperatur Aufgabe 1
-# erster: Ag, zweiter: Ni_2, dritter: CO2
+# erster: Ag, zweiter: N_2, dritter: CO2
 21 deg
 963.2 hPa
