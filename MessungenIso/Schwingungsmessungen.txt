@@ -1,0 +1,5 @@
+# Aufgabe 5 für Ag
+# Schwingungen Zeit
+ s
+300 271.21
+300 307.51
