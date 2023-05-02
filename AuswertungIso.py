@@ -1,7 +1,9 @@
+from sys import path
+path.append('Header')
+
 from physicsfun import *
 from mathsfun import *
 from readfun import *
-
-print(cRead("MessungenIso/Schwingungsmessungen.txt"))
+from plotfun import *
 
 # --- Aufgabe 1 ---
