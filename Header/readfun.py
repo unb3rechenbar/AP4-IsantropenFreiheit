@@ -30,7 +30,8 @@ def txtRead(path):
 
 def cRead(path):
     data = []
-    units = ["",""]
+    line = []
+    units = []
     Alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     
     with open(path) as f:
@@ -40,9 +41,14 @@ def cRead(path):
         if "#" in l:
             continue
         elif any(x in l for x in Alphabet):
-            units = [l.split(" ")[0],l.split(" ")[1].replace("\n","")]
+            units = []
+            for w in l.split(" "):
+                units += [w.replace("\n","")]
         else:
-            data += [(Werttupel(l.split(" ")[0],units[0]),Werttupel(l.split(" ")[1].replace("\n",""),units[1]))]
+            for i,w in enumerate(l.split(" ")):
+                line += [Werttupel(float(w.replace("\n","")),units[i])]
+            data += [line]
+            line = []
             
     return data
         

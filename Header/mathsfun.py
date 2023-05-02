@@ -19,6 +19,56 @@ def Wertleser(l: list or tuple or Werttupel) -> str or list:
     else:
         return [x.Wert if type(x) == Werttupel else Wertleser(x) for x in l]
 
+
+def Einheitenmagie(x: Werttupel):
+    if x.Einheit == "m*1/s":
+        x.Einheit = "m/s"
+    elif x.Einheit == "(deg*1/(deg)^2)^2":
+        x.Einheit = "(1/deg)^2"
+    elif x.Einheit == "mV*hPa/mV":
+        x.Einheit = "hPa"
+    elif x.Einheit == "mV*m^3/mV":
+        x.Einheit = "m^3"
+    elif x.Einheit == "hPa*m^3*(1/(J/(mol*K)*K))":
+        x.Einheit = "mol"
+        x.Wert *= 100
+    elif x.Einheit == "mV*hPa/mV":
+        x.Einheit = "hPa"
+    elif x.Einheit == "mV*m^3/mV":
+        x.Einheit = "m^3"
+    elif x.Einheit == "J/(mol*K)*K":
+        x.Einheit = "J/mol"
+    elif x.Einheit == "(1/(J/mol))":
+        x.Einheit = "mol/J"
+    elif x.Einheit == "hPa/mV*hPa":
+        x.Einheit = "1/mV"
+    elif x.Einheit == "hPa*m^3*(1/(J/(mol*K)*(K)^2))*K":
+        x.Einheit = "mol"
+        x.Wert *= 100
+    elif x.Einheit == "hPa*mol/J*m^3/mV*mV":
+        x.Einheit = "mol"
+        x.Wert *= 100
+    elif x.Einheit == "m^3*mol/J*hPa/mV*mV": 
+        x.Einheit= "mol"
+        x.Wert *= 100
+    elif x.Einheit == "sqrt((mol)^2)":
+        x.Einheit = "mol"
+    elif x.Einheit == "hPa*m^3*mol/J":
+        x.Einheit = "mol"
+        x.Wert *= 100
+    elif x.Einheit == "s*V*A":
+        x.Einheit = "J"
+    elif x.Einheit == "mol*J/(mol*K)*K*ln(m^3*(1/(m^3)))":
+        x.Einheit = "J"
+    elif (x.Einheit == "kg*m/s^2*(1/((mm)^2))") or (x.Einheit == "m/s^2*(1/((mm)^2))*kg") or (x.Einheit == "kg*(1/((mm)^2))*m/s^2") or (x.Einheit == "kg*m/s^2*(1/(mm*(mm)^2))*mm"):
+        x.Einheit = "Pa"
+        x.Wert = x.Wert/(10 ** 6)
+    elif x.Einheit == "hPa":
+        x.Einheit = "Pa"
+        x.Wert = x.Wert * 100
+    else: pass
+    return x
+
 # Vektorrichtungen
 def Dimension(x: list) -> int:
     Dimensionen = [1 if isinstance(y,(int,float,Werttupel)) else Dimension(y) for y in x]
@@ -199,7 +249,7 @@ def inv(W: int or float or Werttupel) -> int or float or Werttupel:
     if isinstance(W,(int,float)):
         return 1 / W
     else:
-        return Werttupel(1 / W.Wert,"1/" + W.Einheit)
+        return Werttupel(1 / W.Wert,"(1/(" + W.Einheit + "))")
     
 def neg(W: int or float or Werttupel) -> int or float or Werttupel:
     if isinstance(W,(int,float)):
@@ -275,15 +325,16 @@ def wcos(W: int or float or Werttupel) -> int or float or Werttupel:
 
 def scpr(W1: int or float or Werttupel or list or tuple, W2: int or float or Werttupel or list or tuple) -> int or float or Werttupel:
     if (isinstance(W1,(int,float,Werttupel))) and (isinstance(W2,(int,float,Werttupel))):
-        return mal(W1,W2)
+        print(Einheitenmagie(mal(W1,W2)))
+        return Einheitenmagie(mal(W1,W2))
     elif (isinstance(W1,(list,tuple)) and isinstance(W2,(list,tuple))):
         if Dimensionsstruktur(W1) == Dimensionsstruktur(W2):
-            return wsum([wscpr(x,y) for (x,y) in zip(W1,W2)])
+            return wsum([scpr(x,y) for (x,y) in zip(W1,W2)])
         else:
             print("Dimensionsstrukturen stimmen nicht überein!")
             exit(1)
     else:
-        print("Werte in wscpr-Auswertung sind nicht kompatibel!")
+        print("Werte in scpr-Auswertung sind nicht kompatibel!")
         exit(1)
 
 # Unsicherheitsberechnung
@@ -317,7 +368,7 @@ def wUnsicherheit(f: tuple,x: tuple,ux: tuple) -> tuple:
         
 # Pauschale Unsicherheiten
 def uPauschal(x: int or float or Werttupel or list) -> int or float or Werttupel:
-    if isinstance(x,(int or float or Werttupel)):
+    if isinstance(x,(int,float,Werttupel)):
         return mal(0.1,x)
     else:
         return stupelmal(0.1,x)
