@@ -1,11 +1,7 @@
-import numpy as np
-import math 
-import matplotlib.pyplot as plt
-
 from mathsfun import *
 from readfun import *
 from plotfun import *
-# from constfun import *
+from variables import *
 
 
 def Einheitenkuerzer(x: Werttupel):

@@ -1,11 +1,7 @@
 from sys import path
 path.append('Header')
 
-from variables import *
-from mathsfun import *
 from physicsfun import *
-from readfun import *
-from plotfun import *
 
 # --- Einlesen der Messdaten ---
 # Tupel mit (Schwingzahl,Schwingdauer)
