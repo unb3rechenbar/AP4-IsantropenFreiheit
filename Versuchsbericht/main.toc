@@ -1,0 +1,13 @@
+\babel@toc {ngerman}{}
+\contentsline {section}{\numberline {1}Grundlagen}{1}{}%
+\contentsline {subsection}{\numberline {1.1}Kritischer Punkt}{1}{}%
+\contentsline {section}{\numberline {2}Versuchsaufbau und Versuchsdurchführung}{2}{}%
+\contentsline {subsection}{\numberline {2.1}Isentropic exponent}{2}{}%
+\contentsline {subsection}{\numberline {2.2}Degrees of freedom}{2}{}%
+\contentsline {section}{\numberline {3}Auswertung der Messergebnisse}{3}{}%
+\contentsline {subsection}{\numberline {3.1}Isentropric Exponent}{3}{}%
+\contentsline {subsection}{\numberline {3.2}Degrees of freedom}{3}{}%
+\contentsline {section}{\numberline {4}Fazit}{4}{}%
+\contentsline {subsection}{\numberline {4.1}Isentropic exponent}{4}{}%
+\contentsline {subsection}{\numberline {4.2}Degrees of freedom}{4}{}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

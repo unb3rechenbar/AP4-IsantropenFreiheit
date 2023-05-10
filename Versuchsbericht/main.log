@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6.28) (preloaded format=pdflatex 2021.11.9)  10 MAY 2023 12:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6.28) (preloaded format=pdflatex 2021.11.9)  10 MAY 2023 12:20
 entering extended mode
 **./main.tex
 (main.tex
@@ -1203,22 +1203,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathcalb' in version `bold'
 (Font)                  U/BOONDOX-calo/m/n --> U/BOONDOX-calo/b/n on input line
  9.
 )
-(C:\Users\david\Desktop\uni\latex_package\David/DavidMain.tex
-
-! LaTeX Error: Command \span already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1 \DeclareMathOperator{\span}{span}
-                                     
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-) (C:\Users\david\Desktop\uni\latex_package\Tom/TomMain.tex
+(C:\Users\david\Desktop\uni\latex_package\David/DavidMain.tex)
+(C:\Users\david\Desktop\uni\latex_package\Tom/TomMain.tex
 (C:\Users\david\Desktop\uni\latex_package\Tom/Umgebungen/Umgebungen.tex
 Package thmtools Info: Key `mdframed' (with value ` linewidth=1pt, rightline=fa
 lse, topline=false, bottomline=false, ')
@@ -1350,61 +1336,15 @@ LaTeX Font Info:    Trying to load font information for OMS+rsfs on input line
 \openout4 = `main.toc'.
 
  [2] (Sektionen/Grundlagenteil.tex
-(Sektionen/Grundlagen/Isotropen_Exponent.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-<Bilddateien/Grundlagen/phasendiagramm.jpg, id=49, 283.0575pt x 178.266pt>
-File: Bilddateien/Grundlagen/phasendiagramm.jpg Graphic file (type jpg)
-<use Bilddateien/Grundlagen/phasendiagramm.jpg>
-Package pdftex.def Info: Bilddateien/Grundlagen/phasendiagramm.jpg  used on inp
-ut line 11.
-(pdftex.def)             Requested size: 199.16928pt x 125.43816pt.
-
-LaTeX Warning: Citation `demtroeder' on page 1 undefined on input line 12.
-
-
-LaTeX Warning: Citation `demtroeder' on page 1 undefined on input line 12.
-
-
-LaTeX Warning: Citation `heintze' on page 1 undefined on input line 20.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
-
- []
-
-[1 <./Bilddateien/Grundlagen/phasendiagramm.jpg>]
-<Bilddateien/Grundlagen/koexistenzgebiet.jpg, id=59, 274.626pt x 282.45525pt>
-File: Bilddateien/Grundlagen/koexistenzgebiet.jpg Graphic file (type jpg)
-<use Bilddateien/Grundlagen/koexistenzgebiet.jpg>
-Package pdftex.def Info: Bilddateien/Grundlagen/koexistenzgebiet.jpg  used on i
-nput line 27.
-(pdftex.def)             Requested size: 142.26378pt x 146.31728pt.
-
-
-LaTeX Warning: Citation `heintze' on page 2 undefined on input line 28.
-
-
-LaTeX Warning: Citation `heintze' on page 2 undefined on input line 28.
-
-
-LaTeX Warning: Reference `eq:VanDerWaals' on page 2 undefined on input line 30.
-
-
-
-LaTeX Warning: Citation `heintze' on page 2 undefined on input line 36.
-
-[2 <./Bilddateien/Grundlagen/koexistenzgebiet.jpg>]
-
-LaTeX Warning: Citation `nolting42' on page 3 undefined on input line 51.
-
+(Sektionen/Grundlagen/Isotropen_Exponent.tex)
+(Sektionen/Grundlagen/Freiheitsgrade.tex))
+(Sektionen/UnbeantworteteFragenUndAufgaben.tex) [1]
+(Sektionen/Versuchsdurchfuehrung.tex) [2] (Sektionen/Auswertung.tex
 ! Undefined control sequence.
-<argument> T\in \R 
-                   _{>0}
-l.58 	\end{align*}
-                  
+<argument> \sqrt {\sum _{i\in \Def 
+                                   (x)}\diff {f}{u(x_i)}{x}{}}
+l.6 ..._i)}{x}{}}}{x\in\Def{f}}}{f\in C^(\R^d,\R)}
+                                                  .\]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1412,35 +1352,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-<argument> T\in \R 
-                   _{>0}
-l.58 	\end{align*}
-                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: Reference `fig:SF6Struktur' on page 3 undefined on input line 71
-.
-
-<Bilddateien/Grundlagen/SF6.png, id=66, 948.54375pt x 1011.78pt>
-File: Bilddateien/Grundlagen/SF6.png Graphic file (type png)
-<use Bilddateien/Grundlagen/SF6.png>
-Package pdftex.def Info: Bilddateien/Grundlagen/SF6.png  used on input line 74.
-
-(pdftex.def)             Requested size: 113.81102pt x 121.39291pt.
-
-LaTeX Warning: Citation `SF6wiki' on page 3 undefined on input line 75.
-
-
-LaTeX Warning: Citation `SF6wiki' on page 3 undefined on input line 75.
-
-! Undefined control sequence.
-l.79 ...kkurate Messung. Konkret ist $T_{krit}=\SI
-                                                  {45.55}{\degree}$, $p_{kri...
+<argument> x\in \Def 
+                     {f}
+l.6 ..._i)}{x}{}}}{x\in\Def{f}}}{f\in C^(\R^d,\R)}
+                                                  .\]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1448,84 +1363,74 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.79 .... Konkret ist $T_{krit}=\SI{45.55}{\degree
-                                                  }$, $p_{krit}=\SI{37,6}{\b...
+<argument> f\in C^(\R 
+                      ^d,\R )
+l.6 ..._i)}{x}{}}}{x\in\Def{f}}}{f\in C^(\R^d,\R)}
+                                                  .\]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
+
+! Double superscript.
+<argument> f\in C^(\R ^
+                       d,\R )
+l.6 ..._i)}{x}{}}}{x\in\Def{f}}}{f\in C^(\R^d,\R)}
+                                                  .\]
+I treat `x^1^2' essentially like `x^1{}^2'.
 
 ! Undefined control sequence.
-l.79 ...{krit}=\SI{45.55}{\degree}$, $p_{krit}=\SI
-                                                  {37,6}{\bar}$ \cite{riessn...
+<argument> f\in C^(\R ^d,\R 
+                            )
+l.6 ..._i)}{x}{}}}{x\in\Def{f}}}{f\in C^(\R^d,\R)}
+                                                  .\]
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-! Argument of \mathaccentV has an extra }.
-<inserted text> 
-                \par 
-l.79 ...5.55}{\degree}$, $p_{krit}=\SI{37,6}{\bar}
-                                                  $ \cite{riessner}.
-I've run across a `}' that doesn't seem to match anything.
-For example, `\def\a#1{...}' and `\a}' would produce
-this error. If you simply proceed now, the `\par' that
-I've just inserted will cause me to report a runaway
-argument that might be the root of the problem. But if
-your `}' was spurious, just type `2' and it will go away.
-
-Runaway argument?
-! Paragraph ended before \mathaccentV was complete.
-<to be read again> 
-                   \par 
-l.79 ...5.55}{\degree}$, $p_{krit}=\SI{37,6}{\bar}
-                                                  $ \cite{riessner}.
-I suspect you've forgotten a `}', causing me to apply this
-control sequence to too much text. How can we recover?
-My plan is to forget the whole thing and hope for the best.
+) [3] (Sektionen/Fazit.tex) [4] (Sektionen/Literatur.tex
+! Undefined control sequence.
+l.6 ...irlungmotor, transparent | PHYWE. URL: \url
+                                                  {https://www.phywe.de/phys...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.79 ...5.55}{\degree}$, $p_{krit}=\SI{37,6}{\bar}
-                                                  $ \cite{riessner}.
+l.6 ...-waerme-entropie/stirlingmotor-transparent_
+                                                  764_1695/}. Abgerufen am 1...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.79 ...5.55}{\degree}$, $p_{krit}=\SI{37,6}{\bar}
-                                                  $ \cite{riessner}.
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-! Extra }, or forgotten \endgroup.
-<recently read> }
-                 
-l.79 ...5.55}{\degree}$, $p_{krit}=\SI{37,6}{\bar}
-                                                  $ \cite{riessner}.
+! Extra }, or forgotten $.
+l.6 ...tropie/stirlingmotor-transparent_764_1695/}
+                                                  . Abgerufen am 18.04.2023.
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
 you forgot something else, as in `\hbox{$x}'. In such cases
 the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
-
-LaTeX Warning: Citation `riessner' on page 3 undefined on input line 79.
-
-)
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.6 ...\subfile{Grundlagen/Isotropen_Exponent.tex}
-                                                  
+l.7 
+    
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.7 
+    
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -1533,26 +1438,133 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-! LaTeX Error: File `Sektionen/Grundlagen/Freheitsgrade.tex' not found.
+Overfull \hbox (33.19038pt too wide) in paragraph at lines 6--7
+[]\OT1/cmr/m/n/10.95 Stirlungmotor, trans-pa-rent | PHY-WE. URL: https://www.ph
+ywe.de/physik/waermelehre-
+ []
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
 
-Enter file name: 
-! Emergency stop.
-<read *> 
-         
-l.9     \subfile{Grundlagen/Freheitsgrade.tex}
-                                              
-*** (cannot \read from terminal in nonstop modes)
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
+\OT1/cmr/m/n/10.95 thermodynamik/umwandlung-von-waerme-entropie/stirlingmotor-
+ []
 
- 
+! Undefined control sequence.
+l.8 ...wefelhexofluorid | Rießner-Gase. URL: \url
+                                                  {https://riessner.de/de/un...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+[]\OT1/cmr/m/n/10.95 Stirlungmotor, Schwe-fel-he-xofluo-rid | Riener-Gase. URL
+:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
+\OT1/cmr/m/n/10.95 https://riessner.de/de/unsere-loesung/gase/schwefelhexafluor
+id. Ab-ge-ru-fen am
+ []
+
+! Undefined control sequence.
+l.14 ...irling pV- und TS-Diagramm.svg}. URL: \url
+                                                  {https://commons.wikimedia...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.14 .../commons.wikimedia.org/wiki/File:Stirling_
+                                                  pV-_und_TS-Diagramm.svg}, ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+l.14 ...iki/File:Stirling_pV-_und_TS-Diagramm.svg}
+                                                  , abgerufen am 09.05.2023.
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.15 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.15 
+     
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+[]\OT1/cmr/m/n/10.95 Wikipedia. \OT1/cmr/m/it/10.95 Fi-le:Stirling pV- und TS-D
+iagramm.svg\OT1/cmr/m/n/10.95 . URL:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+\OT1/cmr/m/n/10.95 https://commons.wikimedia.org/wiki/File:Stirling$[]\OML/cmm/
+m/it/10.95 V \OMS/cmsy/m/n/10.95  [] \OML/cmm/m/it/10.95 nd[]S \OMS/cmsy/m/n/10
+.95  
+ []
+
+) [5] (main.lof)
+\tf@lof=\write5
+\openout5 = `main.lof'.
+
+ (main.lot)
+\tf@lot=\write6
+\openout6 = `main.lot'.
+
+ [6] (Sektionen/Messdaten.tex) [7]
+(Sektionen/Auswertungscode.tex
+(C:\Users\david\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)) (main.aux) ) 
 Here is how much of TeX's memory you used:
- 30893 strings out of 478872
- 653998 string characters out of 2848887
- 1156196 words of memory out of 3000000
- 48122 multiletter control sequences out of 15000+600000
- 418408 words of font info for 86 fonts, out of 8000000 for 9000
+ 31343 strings out of 478872
+ 658991 string characters out of 2848887
+ 1335703 words of memory out of 3000000
+ 48547 multiletter control sequences out of 15000+600000
+ 417759 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 129i,20n,125p,10601b,752s stack positions out of 5000i,500n,10000p,200000b,80000s
-!  ==> Fatal error occurred, no output PDF file produced!
+ 129i,19n,125p,10601b,1262s stack positions out of 5000i,500n,10000p,200000b,80000s
+<C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmex10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmmi10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/david/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/david/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/david/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/davi
+d/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Use
+rs/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+<C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+ssbx10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmsy8.pfb><C:/Users/david/AppData/Local/Programs/MiKTeX/fonts
+/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on main.pdf (9 pages, 167798 bytes).
+PDF statistics:
+ 131 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
+
