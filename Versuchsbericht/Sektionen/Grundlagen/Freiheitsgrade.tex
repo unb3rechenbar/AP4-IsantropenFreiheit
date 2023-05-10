@@ -3,13 +3,35 @@
 \begin{document}
 
     \subsection{Degrees of freedom}
+        The degrees of freedom of a system are the number of independent variables needed to describe the system fully.
 
         \subsubsection*{Translation, rotation, vibration}
+        Single atoms only have three \textit{translational} degrees of freedom, which are their x-,y-, and z-coordinates. More complex molecules may have different states depending on their rotation, making for up to three additional \textit{rotational} degrees of freedom. For example, $O_2$ has two rotational degrees of freedom, since its symmetrical along the axis connecting the atoms.Lastly, a molecule can also vibrate. Here, the \textit{vibrational} degrees of freedom are double the number of eigen-vibrationmodes. The fact that each mode is counted twice makes for a more convenient mathematical treatment of thermodynamic equations.\\
+
+        \noindent Due to quantummechanical effects, not every degree of freedom may be available to a system with a given energy. Hence the number of \textit{effective} degrees of freedom $f_{eff}$ is smaller than the actual number $f$ \cite[p.75-76]{heintze}.\\
+
+        \noindent In statistical mechanics it is shown, that the inner energy $U$ of one mole is connected to the degrees of freedom as follows:
+        \begin{align*}
+            U=\frac{1}{2}\cdot f\cdot N_A\cdot kT=\frac{1}{2}\cdot(f_{trans}+f_{rot}+f_{vibr})\cdot N_A\cdot kT.
+        \end{align*}
+        At constant volume the change heat $\Delta Q$ is equal to $\Delta U$ and thus the above equation gives
+        \begin{align*}
+            \Delta Q=\frac{1}{2}\cdot f\cdot N_Ak\cdot\Delta T=\frac{f\cdot R}{2}\cdot\Delta T\implies C_V=\frac{1}{2}\cdot f\cdot R
+        \end{align*}
+        for the thermal capacity $C_V$. At constant pressure, the ideal gas law gives $\Delta Q=\Delta U+p\cdot\Delta V$ and furthermore
+        \begin{align*}
+            \Delta Q=(C_V+R)\cdot\Delta T\implies C_p=C_V+R.
+        \end{align*}
+        Using the relation $\kappa=C_p/C_V$ to the isentropic exponent it follows
+        \begin{align*}
+            \kappa=\frac{f+2}{f},
+        \end{align*}
+        which can be used to determine the effective degrees of freedom of a given substance \cite[p.296-297]{demtroeder1.9}.
 
         \subsubsection*{Standing waves and resonance}
 
         \subsubsection*{Forced oscillations}
-
+c
     \subsection{Sound}
 
         \subsubsection*{Velocity of sound}
