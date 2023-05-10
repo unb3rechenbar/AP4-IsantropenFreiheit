@@ -1,26 +1,35 @@
 \documentclass{subfiles}
 
 \begin{document}
-
-
     \subsection{States of matter}
-    
+        % Sis is se wörst aidea eva
+
+        Matter in general is found in three states, named \emph{solid}, \emph{liquid} and \emph{gaseous}. We will focus on the latter two, as they are the most relevant for our experiment. First we discuss the so called \emph{ideal Gas} in the following section. 
+
         \subsubsection*{Ideal Gas}
+            An ideal Gas is characterized by the properties of molecules having \emph{no volume} and \emph{no interaction} with each other. This means that the molecules are considered to be point-like. This assumption leads to the most fundamental equation in this experiment, the \emph{ideal gas law}:
+            \[
+                pV = nRT,
+            \]
+            where $p$ is the pressure, $V$ the volume, $n$ the number of moles, $R$ the universal gas constant and $T$ the temperature ´\footnote{The universal gas constant is given by $R = \SI{8.314}{\joule\per\mole\per\kelvin}$, found in \cite{nist:gasconstant}.} \cite[p.11]{nolting42}. 
 
         \subsubsection*{Real Gas}
+            The introduced assumptions in ideal gas theory are in practice only met when infinitely decreasing density. \emph{Infinitely} in reality is not possible, so the assumptions need a refresh. We assign every gasmolecule a volume $V_m$ and a force $F_m$ resulting interaction with close molecules. Doing this we enter the realm of \emph{real gas theory}, in which multiple models exist. One of them is the \emph{van der Waals} model, in which coefficients $a$ and $b$ are introduced to account for the volume and interaction of the molecules. The van der Waals equation is then given by
+            \[\nbra{p + \frac{a\cdot n^2}{V^2}} \cdot \nbra{V - n\cdot b} = nRT.\]
+            The coefficients $a$ and $b$ are specific to each type of gas. \cite[p.13]{nolting42}
     
     \subsection{Thermodynamic aspects}
-    
+        Some of the typical thermodynamic terms were already used above. We now want to introduce them in a more formal way.
         \subsubsection*{State variables}
-        
+            A so called \emph{state variable} in general is a variable that \emph{describes} the state of a system. In thermodynamics of gases, the most common state variables are \emph{pressure} $p$, \emph{volume} $V$, \emph{temperature} $T$ and \emph{number of moles} $n$ or \emph{total number of molecules} $N$ \cite[p.5]{nolting42}. While those are mostly self explanatory, the next state variables called \emph{inner energy} $U$ and \emph{entropy} $S$ needs some understanding. To do so, we need to introduce the concept of \emph{thermodynamic processes}.
         \subsubsection*{Thermodynamic processes}
-        
-        \subsubsection*{First law of thermodynamics}
-        
+            A thermodynamic process is a process in which a system changes its state variables. The first law of thermodynamics is an example of such. It states that the change of inner energy $dU$ from a state $x\in\Def{U}$ to a new state $x + h$ is equal to the heat $dQ$ added to the system minus the work $dW$ done by the system:
+            \[dU(x)(h) = dQ(x)(h) + dW(x)(h),\quad h\in\Def{U}.\]
+
         \subsubsection*{Isentropic exponent}
-        
+
         \subsubsection*{Poisson equations}
-        
+
         \subsubsection*{Thermal capacity}
 
 
