@@ -23,12 +23,22 @@
         \subsubsection*{State variables}
             A so called \emph{state variable} in general is a variable that \emph{describes} the state of a system. In thermodynamics of gases, the most common state variables are \emph{pressure} $p$, \emph{volume} $V$, \emph{temperature} $T$ and \emph{number of moles} $n$ or \emph{total number of molecules} $N$ \cite[p.5]{nolting42}. While those are mostly self explanatory, the next state variables called \emph{inner energy} $U$ and \emph{entropy} $S$ needs some understanding. To do so, we need to introduce the concept of \emph{thermodynamic processes}.
         \subsubsection*{Thermodynamic processes}
-            A thermodynamic process is a process in which a system changes its state variables. The first law of thermodynamics is an example of such. It states that the change of inner energy $dU$ from a state $x\in\Def{U}$ to a new state $x + h$ is equal to the heat $dQ$ added to the system minus the work $dW$ done by the system:
+            A thermodynamic process is a process in which a system changes its state variables. The first law of thermodynamics is an example of such. It states that the change of inner energy $dU$ from a state $x\in\Def{U}$ to a new state $x + h$ is equal to the \emph{heat} $dQ$ added to the system minus the \emph{work} $dW$ done by the system:
             \[dU(x)(h) = dQ(x)(h) + dW(x)(h),\quad h\in\Def{U}.\]
+            We now found a description of $U$ using its derivative \cite[p.36]{nolting42}. For the entropy $S$ we use the introduced term \emph{heat} and its derivative: $dS(x)(h) = dQ(x)(h) / dT(x)(h)$ \cite[p.56]{nolting42}. 
 
         \subsubsection*{Isentropic exponent}
+            In an \emph{adiabatic process} no heat is added to the system. This means that $dQ(x)(h) = 0$ for every state $x$ and change $h$. Using the first law of thermodynamics and assuming ideal gas we can write
+            \[dT(x)(V) = -\frac{p}{C_V} = \frac{n\cdot R}{C_V}\cdot\frac{T}{V},\]
+            where we first used $dU(x)(V) = 0$ and $p = nRT/V$ and introduced $C_V$ as the \emph{thermal capacity} at constant volume. Using $nR = C_p-C_V$ and introducing $C_p$ as the \emph{thermal capacity} at constant pressure we find
+            \[dT(x)(V) = \frac{C_p-C_V}{C_V} \cdot\frac{T}{V}.\]
+            Now we can define the \emph{isentropic exponent} $\kappa$ as $\kappa:=C_P/C_V$ and find the \emph{adiabatic equation}
+            \[T\cdot V^{1-\kappa} = \textit{const}. \Longleftrightarrow p\cdot V^\kappa = \textit{const}.\]
 
         \subsubsection*{Poisson equations}
+            The \emph{poisson equation} in general is a partial differential equation of the form
+            \[-\lap u(t) = F(t,u(t))\]
+            with some right side $F\in C^0(\R\times\R^d)$ and the sought function $u\in C^2(\R^d)$. 
 
         \subsubsection*{Thermal capacity}
 
