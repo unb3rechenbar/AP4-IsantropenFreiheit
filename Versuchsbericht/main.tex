@@ -1,0 +1,72 @@
+\documentclass[oneside, ngerman, footinclude=off, captions=tableheading, DIV=12;usenames,dvipsnames]{scrartcl}
+
+% -----------------------------------------------------------
+% Pakete
+\usepackage{UniLaTeXPackage}
+
+\begin{document}
+
+% -----------------------------------------------------------
+% Deckblatteinrichtung
+    \title{Heissluftmotor \& \\ kritischer Punkt}
+    \subtitle{Anfängerpraktikum 3 im Fach Physik (Universität Konstanz)}
+    \author{Autoren: Tom Folgmann, David Jannack \\ \large{Tutor:  	Sarah Sanz Alonso}}
+    \date{Versuch durchgeführt am 02.03.2023}
+    \maketitle
+    \pagenumbering{alph}
+    \thispagestyle{empty}
+    \section*{Einleitung}
+        \subfile{Sektionen/Einleitung.tex}
+
+    \newpage
+
+% -----------------------------------------------------------
+% Inhaltsvorbereitung
+
+    \tableofcontents
+    \thispagestyle{empty}	
+    \newpage
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
+
+% -----------------------------------------------------------
+% Dokumentkern
+
+\newpage
+\section{Grundlagen}
+    \subfile{Sektionen/Grundlagenteil.tex}
+    \subfile{Sektionen/UnbeantworteteFragenUndAufgaben.tex}
+	
+
+\newpage
+\section{Versuchsaufbau und Versuchsdurchführung}
+    \subfile{Sektionen/Versuchsdurchfuehrung.tex}
+
+\newpage
+\section{Auswertung der Messergebnisse}
+    \subfile{Sektionen/Auswertung.tex}
+
+\newpage
+\section{Fazit}
+    \subfile{Sektionen/Fazit.tex}
+
+% -----------------------------------------------------------
+% Abspann und Credits
+
+\newpage
+    \subfile{Sektionen/Literatur.tex}
+\newpage
+    \listoffigures
+    \listoftables
+
+
+\newpage
+    \section*{Messdaten}
+    \subfile{Sektionen/Messdaten.tex}
+\newpage
+    \subfile{Sektionen/Auswertungscode.tex}
+
+
+
+%\includepdf[pages=1-1,scale=0.9,frame=true]{Protokolle/PATH.pdf}
+\end{document}
