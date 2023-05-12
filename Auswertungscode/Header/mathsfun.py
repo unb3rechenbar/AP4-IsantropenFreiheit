@@ -72,6 +72,9 @@ def Einheitenmagie(x: Werttupel):
     elif x.Einheit == "((1/()))^2*(1/(J/(mol*K)*K*(1/(g/mol))))*(Hz*m)^2":
         x.Einheit = ""
         x.Wert *= 0.001
+    elif x.Einheit in {"l*(1/((s)^2*Pa*((mm)^2)^2))*kg","kg*(1/((s)^2*Pa*((mm)^2)^2))*l","kg*l*(1/(s*(s)^2*Pa*((mm)^2)^2))*s","kg*l*(1/((s)^2*((mm)^2)^2))*(1/((Pa)^2))*Pa","kg*l*(1/((s)^2*Pa))*(1/(mm*((mm)^2)^2))*mm"}:
+        x.Einheit = ""
+        x.Wert *= 10 ** 9
     else: pass
     return x
 
@@ -330,7 +333,6 @@ def wcos(W: int or float or Werttupel) -> int or float or Werttupel:
 
 def scpr(W1: int or float or Werttupel or list or tuple, W2: int or float or Werttupel or list or tuple) -> int or float or Werttupel:
     if (isinstance(W1,(int,float,Werttupel))) and (isinstance(W2,(int,float,Werttupel))):
-        print(Einheitenmagie(mal(W1,W2)))
         return Einheitenmagie(mal(W1,W2))
     elif (isinstance(W1,(list,tuple)) and isinstance(W2,(list,tuple))):
         if Dimensionsstruktur(W1) == Dimensionsstruktur(W2):

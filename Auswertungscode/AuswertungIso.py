@@ -5,14 +5,14 @@ from physicsfun import *
 
 # --- Einlesen der Messdaten ---
 # Tupel mit (Schwingzahl,Schwingdauer)
-RueckFlammAr = cRead("MessungenIso/Schwingungsmessungen.txt")[0] 
-RueckFlammCO2 = cRead("MessungenIso/Schwingungsmessungen.txt")[1]
-RueckFlammN2 = cRead("MessungenIso/Schwingungsmessungen.txt")[2]
+RueckFlammAr = cRead("../MessungenIso/Schwingungsmessungen.txt")[0] 
+RueckFlammCO2 = cRead("../MessungenIso/Schwingungsmessungen.txt")[1]
+RueckFlammN2 = cRead("../MessungenIso/Schwingungsmessungen.txt")[2]
 # FRAGE: Ist die Zuordnung richtig?
 
-HoehenAg = cRead("MessungenIso/Hoehenmessungen.txt")[0:2]
-HoehenCO2 = cRead("MessungenIso/Hoehenmessungen.txt")[2:4]
-HoehenN2 = cRead("MessungenIso/Hoehenmessungen.txt")[4:6]
+HoehenAg = cRead("../MessungenIso/Hoehenmessungen.txt")[0:2]
+HoehenCO2 = cRead("../MessungenIso/Hoehenmessungen.txt")[2:4]
+HoehenN2 = cRead("../MessungenIso/Hoehenmessungen.txt")[4:6]
 
 print(HoehenCO2[1][3])
 
@@ -63,21 +63,23 @@ def Adiabateniteration(Veff: Werttupel, Ts: Werttupel):
         Glasrohrradius
     )
 
-    dKappa = dKappa1(
-        MasseSchwingkoerper,
-        Veff,
-        Ts,
-        GleichgewichtsDruck,
-        Glasrohrradius,
-        [
-            Werttupel(0.01,"kg"),
-            uPauschal(Veff),
-            uPauschal(Ts),
-            dGleichgewichtsDruck,
-            Werttupel(0.1,"mm")
-        ]
-    )
-    exit()
+    # dKappa = dKappa1(
+    #     MasseSchwingkoerper,
+    #     Veff,
+    #     Ts,
+    #     GleichgewichtsDruck,
+    #     Glasrohrradius,
+    #     [
+    #         Werttupel(0.01,"kg"),
+    #         uPauschal(Veff),
+    #         uPauschal(Ts),
+    #         dGleichgewichtsDruck,
+    #         Werttupel(0.1,"mm")
+    #     ]
+    # )
+    # exit()
+    
+    dKappa = uPauschal(Kappa)
     
     return (Kappa,dKappa)
     
@@ -90,21 +92,25 @@ for i in range(3):
 Hoehenunsicherheit = Werttupel(3,"mm")
 
 def Adiabateniteration(H: list):
-    Hoehenmittel1 = mal(1 / len(3),wsum(H[0][1:]))
-    Hoehenmittel3 = mal(1 / len(3),wsum(H[1][1:]))
+    print(H[0][2])
+    Hoehenmittel1 = mal(1 / 3,wsum(H[0][1:]))
+    Hoehenmittel3 = mal(1 / 3,wsum(H[1][1:]))
+    
     
     Kappa = Kappa2(
         Hoehenmittel1,
         Hoehenmittel3,
     )
-    dKappa = dKappa2(
-        Hoehenmittel1,
-        Hoehenmittel3,
-        [
-            Hoehenunsicherheit,
-            Hoehenunsicherheit
-        ]   
-    )
+    # dKappa = dKappa2(
+    #     Hoehenmittel1,
+    #     Hoehenmittel3,
+    #     [
+    #         Hoehenunsicherheit,
+    #         Hoehenunsicherheit
+    #     ]   
+    # )
+    
+    dKappa = uPauschal(Kappa)
     
     return (Kappa,dKappa)
 
