@@ -42,17 +42,30 @@
             \end{align*}
             The two types of oscillations here can be identiftied with the homogenous and inhomogenous solution to the differential equation.\\
 
-            \noindent If damping is present, the homogenous vibration may vanish as time goes on, only leaving the inhomogenous type (if $F$ is also periodical). Due to the inertia of all mechanical systems, that second oscillations has a phase difference compared to the oscilating force $F$. For certain \textit{resonance frequencie}, this leads to the system-vibrations of much higher amplitudes than the one of $F$. Figure presents a qualitative relationship of the driving frequency $\omega$ and the amplitde of the system.
+            \noindent If damping is present, the homogenous vibration may vanish as time goes on, only leaving the inhomogenous type (if $F$ is also periodical). Due to the inertia of all mechanical systems, that second oscillations has a phase difference compared to the oscilating force $F$. For certain \textit{resonance frequencie}, this leads to the system-vibrations of much higher amplitudes than the one of $F$. Figure presents a qualitative relationship of the driving frequency $\omega$ and the amplitde of the system \cite[374-377]{demtroeder1.9}.
 
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=8cm]{Bilddateien/Grundlagen/Resonanskurve.jpg}
-                \caption{so-called $\reo}
+                \includegraphics[width=8cm]{Bilddateien/Grundlagen/Resonanzkurve.jpg}
+                \caption{resonance of a simple system for different damping coefficients $\gamma$ - for $\gamma=0$ the system can approach an unbonded amplitde, called \textit{resonance disaster}}
             \end{figure}
+            
+            In the case of standing waves, one may think of waves being continouesly fed into a tube of length $L$. There, they reflect of off the tubes walls, creating a standing wave. For sound waves it turns out, the resonance frequencies of that system are these, for which the wavelength fulfills the following property:
+            \begin{align}
+                n\cdot\frac{\lambda}{2}=L\qquad n\in\N
+                \label{eq:ResonanceWavelengths}
+            \end{align}
+            This just means that at both ends of the tube the standing tube has either a node or antinode. Waves of frequencies that do not uphold this constraint quickly dissipate.\\
+
+            \noindent Using \eqref{eq:ResonanceWavelengths} and $c=f\cdot\lambda$, one may calculate the velocity of sound as follows:
+            \begin{align*}
+                c=2n\cdot f\cdot L\qquad n\in\N
+            \end{align*}
             
             %For example, waves trapped inside a tube of length $L$ that create standing waves 
 
     \subsection{Sound}
+        Sound waves are longitunal
 
         \subsubsection*{Velocity of sound}
 
