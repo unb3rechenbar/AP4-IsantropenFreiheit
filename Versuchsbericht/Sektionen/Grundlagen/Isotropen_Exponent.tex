@@ -46,11 +46,63 @@
             with some right side $F\in C^0(\R\times\R^d)$ and the sought function $u\in C^2(\R^d)$.
     
     \subsection{Experimental principle}
-
         \subsubsection*{Rüchhardt and Flammersfeld}
+            To measure the isentropic exponent $\kappa$, Rüchhardt and Flammersfeld developed the setup illustrated in \ref{fig:RuchardtFlammersfeld}.
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=6cm]{Bilddateien/Grundlagen/IsentropicRuchardtFlammersfeld.jpg}
+                \caption{A cylinder $m_S$ oscillators due to gravitational forces, the air pressure $p_0$ and gas pressure of a gas $Ar$, $N_2$, $CO_2$ acting on it}
+                \label{fig:RuchardtFlammersfeld}
+            \end{figure}
+
+            \noindent In equlibrium, the pressure of the gas is equal to $p_0$ plus the pressure caused by the gravitational force $F_G$:
+            \begin{align*}
+                p=p_0+\frac{F_G}{A}=p_0+\frac{m_S\cdot g}{\pi^2}.
+            \end{align*}
+            As no heat is transferred during the oscilating of the cylinder, we have $p\cdot V^{\kappa}=const.$ or $p\propto V^{-\kappa}$. Taking the Differential of this expression leads, after some more steps, to the equation 
+            \begin{align*}
+                m\cdot \ddot x(t)+\frac{\kappa\cdot p\cdot \pi^2\cdot r^4}{V}\cdot x(t)=0
+            \end{align*} 
+            with
+            \begin{itemize}
+                \item $m$: total mass of cylinder $m_S$ and gas
+                \item $V$: volume of gass in equlibrium
+                \item $r$: radius of cylinder/ gas tube
+                \item $x$: spatial displacement of cylinder from state of equlibrium
+            \end{itemize}
+            This is the differential equation of the undamped harmonic oscillator, which yields the oscillation period $T=\sqrt{\frac{4\cdot m\cdot V}{\kappa\cdot p\cdot r^4}}$ ($p$: pressure in equlibrium). As $T$ is easily measurable, one can such computer the isentropic exponent \cite[p.259-262]{skript}
+            \begin{align*}
+                \kappa=\frac{4\cdot m\cdot V}{T^2\cdot p\cdot r^4}
+            \end{align*}
 
         \subsubsection*{Clément and Desormes}
+            An alternative measurement of $\kappa$, described by Clément and Desormes, is shown in figure \ref{fig:ClementDesormes}.
+            
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=6cm]{Bilddateien/Grundlagen/IsentropicClementDesormes.png}
+                \caption{A cylinder $m_S$ oscillators due to gravitational forces, the air pressure $p_0$ and gas pressure of a gas $Ar$, $N_2$, $CO_2$ acting on it}
+                \label{fig:ClementDesormes}
+            \end{figure}
 
+            The experiment is divided into two parts:
+            \begin{itemize}
+                \item A Gas is filled into the glass bottel in \ref{fig:ClementDesormes} such that the pressure $p_1$ inside the bottle is higher than the outside pressue $p_0$. The difference in pressure can now be calculated via the height of the water pillar in the small tube attached to the glass:
+                \begin{align*}
+                    p_1-p_0=\rho_{Water}\cdot g\cdot h_1
+                \end{align*} 
+                \item Some amount of gas is then let out through a valve such that the inner pressue $p_2$ is equal to $p_0$ (indicated by $h_2=0$): the Volume of the gas expands in an approximatially isentropic process and the temperature drops. When the valve is closed again, the gas heats up in an isochor process. The final pressure $p_3$ can once more be calculated using the height $h_3$ of the water pillar.\\
+                
+                \noindent Applying the poison equation to the isentropic, and the \textit{law of Charles} to the isochor process then yields
+                \begin{align*}
+                    p_3-p_0\approx(p_1-p_0)\cdot\frac{\kappa-1}{\kappa}
+                \end{align*}
+            \end{itemize}
+            Finally, $\kappa$ is given as 
+            \begin{align*}
+                \kappa\approx\frac{p_1-p_0}{(p_1-p_0)-(p_3-p_0)}=\frac{h_1}{h_1-h_3}.
+            \end{align*} 
 
 
 % ideal gas
