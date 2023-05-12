@@ -29,9 +29,29 @@
         which can be used to determine the effective degrees of freedom of a given substance \cite[p.296-297]{demtroeder1.9}.
 
         \subsubsection*{Standing waves and resonance}
+        Let $\psi(t,x)=A\cos(\omega t+kx)$ be a one-dimensional wave. If $\psi$ hits a reflective surface, another wave $\psi'(t,x)=A\cos(\omega t-kx+\varphi)$ of opposite direction of progragation is emitted. Both waves intefere to a singular disturbance
+        \begin{align*}
+            \Psi(t,x)=2A\cdot\cos(kx-\frac{\varphi}{2})\cdot\cos(kx+\frac{\varphi}{2}),
+        \end{align*}
+        which has fixed spots of either zero or maximal amplitude, respectively called \textit{nodes} and \textit{antinodes}. For that reason, we say $\Psi$ is a \textit{standing wave}. The phase difference $\phi$ is dependant on the given boundary conditions \cite[p.405]{demtroeder1.9}.\\
 
         \subsubsection*{Forced oscillations}
-c
+            Systems of vibrations can be driven by an external force, resulting in two types of oscillation: one that is typical for the system if no driving force is present, and one directly maintained by the same force. For example, if we have a harmonic oscillator and a driving force $F$, we can describe the system with
+            \begin{align*}
+                \ddot x(t)+\gamma\dot x(t)+\omega_0^2x(t)=F(t)
+            \end{align*}
+            The two types of oscillations here can be identiftied with the homogenous and inhomogenous solution to the differential equation.\\
+
+            \noindent If damping is present, the homogenous vibration may vanish as time goes on, only leaving the inhomogenous type (if $F$ is also periodical). Due to the inertia of all mechanical systems, that second oscillations has a phase difference compared to the oscilating force $F$. For certain \textit{resonance frequencie}, this leads to the system-vibrations of much higher amplitudes than the one of $F$. Figure presents a qualitative relationship of the driving frequency $\omega$ and the amplitde of the system.
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=8cm]{Bilddateien/Grundlagen/Resonanskurve.jpg}
+                \caption{so-called $\reo}
+            \end{figure}
+            
+            %For example, waves trapped inside a tube of length $L$ that create standing waves 
+
     \subsection{Sound}
 
         \subsubsection*{Velocity of sound}
