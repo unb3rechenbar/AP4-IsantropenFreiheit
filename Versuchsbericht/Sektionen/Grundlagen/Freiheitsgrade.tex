@@ -38,7 +38,7 @@
         \subsubsection*{Forced oscillations}
             Systems of vibrations can be driven by an external force, resulting in two types of oscillation: one that is typical for the system if no driving force is present, and one directly maintained by the same force. For example, if we have a harmonic oscillator and a driving force $F$, we can describe the system with
             \begin{align*}
-                \ddot x(t)+\gamma\dot x(t)+\omega_0^2x(t)=F(t)
+                \ddot x(t)+\gamma\cdot\dot x(t)+\omega_0^2\cdot x(t)=F(t)
             \end{align*}
             The two types of oscillations here can be identiftied with the homogenous and inhomogenous solution to the differential equation.\\
 
@@ -57,25 +57,26 @@
             \end{align}
             This just means that at both ends of the tube the standing tube has either a node or antinode. Waves of frequencies that do not uphold this constraint quickly dissipate.\\
 
-            \noindent Using \eqref{eq:ResonanceWavelengths} and $c=f\cdot\lambda$, one may calculate the velocity of sound as follows:
+            \noindent Using \eqref{eq:ResonanceWavelengths} and $c=f\cdot\lambda$, we obtain the for velocity of sound
             \begin{align*}
-                c=2n\cdot f\cdot L\qquad n\in\N
-            \end{align*}
-            
-            %For example, waves trapped inside a tube of length $L$ that create standing waves 
+                c=2n\cdot f\cdot L\qquad n\in\N.
+            \end{align*} 
 
     \subsection{Sound}
-        Sound waves are longitunal
+        Sound waves are longitunal pressure waves, meaning they carry changes in pressure in a direction parallel to the progragation of the wave. For high enough frequencies, this local change in pressure also causes a change in temperature.
 
         \subsubsection*{Velocity of sound}
+            If the exchange of Temperature is slow compared to the frequency of the waves, it is reasonable to assume neglible exchange of heat. We thus have adiabatic conditions and $pV^\kappa=const.$ In these circumstances, the velocity of sound is given as 
+            \begin{align*}
+                c_{0}=\sqrt{\frac{p}{\rho}\cdot\kappa}
+            \end{align*}
 
         \subsubsection*{Kirchhoff correction}
-
-        \subsection{Experimental principle}
-
-        \subsubsection*{Rüchhardt and Flammersfeld}
-
-        \subsubsection*{Clément and Desormes}
+            For standing waves inside of narrow tubes, the thermal conductivity does lead to an significant exchange on heat despite high frequencies $f$. To account for this, we can use the \textit{Kirchhoff-correction}
+            \begin{align*}
+                c=c_0\cdot\nbra{1-\frac{a}{2r\cdot\sqrt{\pi\cdot f}}},
+            \end{align*}
+            where $r$ is the Radius of the tube and $a$ is the Kirchhoff constant.
 
 
 % degrees of freedom: translation, rotation vibration
