@@ -66,6 +66,12 @@ def Einheitenmagie(x: Werttupel):
     elif x.Einheit == "hPa":
         x.Einheit = "Pa"
         x.Wert = x.Wert * 100
+    elif x.Einheit == "m*(1/(sqrt(s)))*(1/(mm*sqrt(Hz)))":
+        x.Einheit = ""
+        x.Wert *= 1000
+    elif x.Einheit == "((1/()))^2*(1/(J/(mol*K)*K*(1/(g/mol))))*(Hz*m)^2":
+        x.Einheit = ""
+        x.Wert *= 0.001
     else: pass
     return x
 
@@ -220,7 +226,6 @@ def plus(W1: int or float or Werttupel,W2: int or float or Werttupel) -> int or 
             print("Einheiten in plus-Auswertung sind nicht gleich!") 
             exit(1)
     elif (isinstance(W1,(int,float)) and isinstance(W2,(Werttupel))):
-        print(W2.Einheit)
         if W2.Einheit == "":
             return Werttupel(W1 + W2.Wert,W2.Einheit)
         else:
