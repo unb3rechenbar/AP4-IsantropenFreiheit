@@ -1,6 +1,7 @@
 from sys import path
 path.append('Header')
 
+from physicsfun import *
 from readfun import *
 from plotfun import *
 
@@ -25,3 +26,15 @@ StandardPGFPlot(
     "Umgebungsmessung",
     [1,0]
 )
+
+# Aufgabe 2
+# Kugelradius = 10
+# MaximaFrequenzen = [
+#     x.Wert if all(abs(x.Wert - y) > Kugelradius for y in [z.Wert for z in Spaltenauswahl(mDatenUmgebung,0)]) else None for x in Spaltenauswahl(mDatenRohr,0)
+# ]
+
+print([x.Wert for x in mDatenRohr])
+
+MaximaFrequenzen = [
+    mDatenRohr[0]
+]
