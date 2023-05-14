@@ -222,7 +222,6 @@ def fileLatexTabelle(Ueberschriften: list, Werte: list, file, r: int = 2):
     tabularconfig = "c" * len(Werte[0])
     FormatUeberschrift = " & ".join(Ueberschriften)
     file.write("\\begin{table}[H]\n\t\\centering\n\t\\begin{tabular}{" + tabularconfig + "}\n\t\t" + FormatUeberschrift + "\\\\\n\t\t\\hline\n")
-    print(len(Werte))
     for Zeile in Werte:
         file.write("\t\t" + " & ".join(
             [str(round(float(x),r)) if isinstance(x,Werttupel) else str(round(float(x[0]),r)) + "(" + str(round(float(x[1]),r)).replace(".","") + ")" for x in Zeile]) + "\t\\\\\n"

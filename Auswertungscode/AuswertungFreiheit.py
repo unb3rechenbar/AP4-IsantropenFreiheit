@@ -76,7 +76,6 @@ Temperaturmessungen = [
     cRead("../MessungenFreiheit/teil10/0.dat")
 ]
 
-print(len(Temperaturmessungen))
 
 
 # ========================================
@@ -222,7 +221,7 @@ for x in Maxima:
 # ========================================
 # Auswertung: Definition des Auswertungsprogramms
 
-def Auswertungsprogramm(Daten,i,file):
+def Auswertungsprogramm(Daten,i):
     """Auswertungsprogramm
 
     Args:
@@ -244,20 +243,19 @@ def Auswertungsprogramm(Daten,i,file):
             graphfile
         )
     
-    file.write("Aufgabe 2:")
+    # Aufgabe 2
     Schallgeschwindigkeiten = [
         SchallRohr(i + 1,x,Rohrlaenge) for i,x in enumerate(MaxList)
     ]
     uSchallgeschwindigkeiten = uPauschal(Schallgeschwindigkeiten)
     
-    
-    print("Aufgabe 3:")
+    # Aufgabe 3
     Korrekturen = [
         SchallKorrektur(KirchhoffK,RohrRadius,x,Schallgeschwindigkeiten[i]) for i,x in enumerate(MaxList)
     ]
     uKorrekturen = uPauschal(Korrekturen)
     
-    print("Aufgabe 4:")
+    # Aufgabe 4
     Kappas = [
         invSchallKorrektur(KirchhoffK,RohrRadius,x,KonstTemp,MolMasseCO2,Korrekturen[i]) for i,x in enumerate(MaxList)
     ]
@@ -302,17 +300,12 @@ KappaSammlung = []
 FreiheitSammlung = []
 
 for i,MaxList in enumerate(Maxima):
-    with open(Dateipfad + Reihenfolge[i] + ".txt","w") as file:
-        file.write(
-            "========================================\n"
-            + "Messung " + str(i) + ": " + Reihenfolge[i] + "\n"
-            + "========================================"
-        )
+    print("Auswertung der Messung '" + Reihenfolge[i] + "'...")
+    
+    X = Spaltenauswahl(Temperaturmessungen[i],0)
+    Y = Spaltenauswahl(Temperaturmessungen[i],1)
 
-        X = Spaltenauswahl(Temperaturmessungen[i],0)
-        Y = Spaltenauswahl(Temperaturmessungen[i],1)
-
-        Auswertungsprogramm((X,Y,MaxList),i,file)
+    Auswertungsprogramm((X,Y,MaxList),i)
         
 
 with open(Dateipfad + "KappaTemperatur.tex","w") as file:
@@ -320,7 +313,7 @@ with open(Dateipfad + "KappaTemperatur.tex","w") as file:
         [Temperaturen],
         [KappaSammlung],
         [0 for x in Temperaturen],
-        [uPauschal(KappaSammlung)],
+        [Wertleser(uPauschal(KappaSammlung))],
         [0],
         ["Temperatur","Kappa"],
         "$\\kappa(T)$",
@@ -334,7 +327,7 @@ with open(Dateipfad + "FreiheitTemperatur.tex","w") as file:
         [Temperaturen],
         [FreiheitSammlung],
         [0 for x in Temperaturen],
-        [uPauschal(FreiheitSammlung)],
+        [Wertleser(uPauschal(FreiheitSammlung))],
         [0],
         ["Temperatur","Freiheit"],
         "$f(T)$",
