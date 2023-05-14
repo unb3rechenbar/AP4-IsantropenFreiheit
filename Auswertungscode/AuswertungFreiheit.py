@@ -247,40 +247,26 @@ def Auswertungsprogramm(Daten,i):
     Schallgeschwindigkeiten = [
         SchallRohr(i + 1,x,Rohrlaenge) for i,x in enumerate(MaxList)
     ]
-    uSchallgeschwindigkeiten = [
-        wUnsicherheit(
-            (SchallRohr,dSchallRohr),
-            (i + 1,x,Rohrlaenge),
-            (0,uMaxList[i],Werttupel(1,"cm"))
-        )[1] for i,x in enumerate(MaxList)
-    ]
-    
-    exit()
+    uSchallgeschwindigkeiten = uPauschal(Schallgeschwindigkeiten)
     
     # Aufgabe 3
     Korrekturen = [
         SchallKorrektur(KirchhoffK,RohrRadius,x,Schallgeschwindigkeiten[i]) for i,x in enumerate(MaxList)
     ]
     uKorrekturen = uPauschal(Korrekturen)
-    
+
     # Aufgabe 4
     Kappas = [
         invSchallKorrektur(KirchhoffK,RohrRadius,x,KonstTemp,MolMasseCO2,Korrekturen[i]) for i,x in enumerate(MaxList)
     ]
     uKappas = uPauschal(Kappas)
-    
+    print(Kappas[0])
     Freiheiten = [
         Freiheit(k) for k in Kappas
     ]
     uFreiheiten = uPauschal(Freiheiten)
-    
+
     # Zusammenfassen
-    uMMaxList = mal(wurzel(wsum([quadrat(x) for x in uMaxList])),inv(len(uMaxList)))
-    uMSchall = mal(wurzel(wsum([quadrat(x) for x in uSchallgeschwindigkeiten])),inv(len(uSchallgeschwindigkeiten)))
-    uMKorrektur = mal(wurzel(wsum([quadrat(x) for x in uKorrekturen])),inv(len(uKorrekturen)))
-    uMKappa = mal(wurzel(wsum([quadrat(x) for x in uKappas])),inv(len(uKappas)))
-    uMFreiheit = mal(wurzel(wsum([quadrat(x) for x in uFreiheiten])),inv(len(uFreiheiten)))
-    
     with open(Dateipfad + "Tabellen/" + Reihenfolge[i] + ".tex","w") as tablefile:
         fileLatexTabelle(
             ["$\\nu$","c","C(c)","$\\kappa$","f"],
@@ -294,11 +280,11 @@ def Auswertungsprogramm(Daten,i):
                     [Freiheiten[i],uFreiheiten[i]]
                 ] for i in range(len(MaxList))
             ] + [[[0,0],
-                [mal(wsum(MaxList),inv(len(MaxList))),uMMaxList],
-                [mal(wsum(Schallgeschwindigkeiten),inv(len(Schallgeschwindigkeiten))),uMSchall],
-                [mal(wsum(Korrekturen),inv(len(Korrekturen))),uMKorrektur],
-                [mal(wsum(Kappas),inv(len(Kappas))),uMKappa],
-                [mal(wsum(Freiheiten),inv(len(Freiheiten))),uMFreiheit]
+                [mal(wsum(MaxList),inv(len(MaxList))),uPauschal(mal(wsum(MaxList),inv(len(MaxList))))],
+                [mal(wsum(Schallgeschwindigkeiten),inv(len(Schallgeschwindigkeiten))),uPauschal(mal(wsum(Schallgeschwindigkeiten),inv(len(Schallgeschwindigkeiten))))],
+                [mal(wsum(Korrekturen),inv(len(Korrekturen))),uPauschal(mal(wsum(Korrekturen),inv(len(Korrekturen))))],
+                [mal(wsum(Kappas),inv(len(Kappas))),uPauschal(mal(wsum(Kappas),inv(len(Kappas))))],
+                [mal(wsum(Freiheiten),inv(len(Freiheiten))),uPauschal(mal(wsum(Freiheiten),inv(len(Freiheiten))))]
             ]],
             tablefile
         )
@@ -313,6 +299,11 @@ def Auswertungsprogramm(Daten,i):
 
 KappaSammlung = []
 FreiheitSammlung = []
+
+# Code wird offiziell hier gebrigged. Bitte nicht entfernen.
+
+exit()
+
 
 for i,MaxList in enumerate(Maxima):
     print("Auswertung der Messung '" + Reihenfolge[i] + "'...")
