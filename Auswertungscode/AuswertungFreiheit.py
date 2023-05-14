@@ -40,6 +40,7 @@ Reihenfolge = [
     "Temperaturmessung 4 Grad",
     "Temperaturmessung 0 Grad"
 ]
+Temperaturen = [math.pi,73,68,63,58,53,38,31,15,10,4,0]
 
 # ========================================
 # Vorbereitung: Festlegen des Speicherortes
@@ -279,15 +280,28 @@ def Auswertungsprogramm(Daten,i,file):
                     [Kappas[i],uKappas[i]],
                     [Freiheiten[i],uFreiheiten[i]]
                 ] for i in range(len(MaxList))
-            ],
+            ] + [[
+                [mal(wsum(MaxList),inv(len(MaxList))),uPauschal(mal(wsum(MaxList),inv(len(MaxList))))],
+                [mal(wsum(Schallgeschwindigkeiten),inv(len(Schallgeschwindigkeiten))),uPauschal(mal(wsum(Schallgeschwindigkeiten),inv(len(Schallgeschwindigkeiten))))],
+                [mal(wsum(Korrekturen),inv(len(Korrekturen))),uPauschal(mal(wsum(Korrekturen),inv(len(Korrekturen))))],
+                [mal(wsum(Kappas),inv(len(Kappas))),uPauschal(mal(wsum(Kappas),inv(len(Kappas))))],
+                [mal(wsum(Freiheiten),inv(len(Freiheiten))),uPauschal(mal(wsum(Freiheiten),inv(len(Freiheiten))))]
+            ]],
             tablefile
         )
+        
+    # Speichern der Kappas und Freiheitsgrade
+    KappaSammlung.append(mal(wsum(Kappas),inv(len(Kappas))))
+    FreiheitSammlung.append(mal(wsum(Freiheiten),inv(len(Freiheiten))))
+    
 
 # ========================================
 # Auswertung: Abruf des Auswertungsprogramms für alle Messungen
 
+KappaSammlung = []
+FreiheitSammlung = []
+
 for i,MaxList in enumerate(Maxima):
-    
     with open(Dateipfad + Reihenfolge[i] + ".txt","w") as file:
         file.write(
             "========================================\n"
@@ -299,4 +313,32 @@ for i,MaxList in enumerate(Maxima):
         Y = Spaltenauswahl(Temperaturmessungen[i],1)
 
         Auswertungsprogramm((X,Y,MaxList),i,file)
+        
+
+with open(Dateipfad + "KappaTemperatur.tex","w") as file:
+    fileStandardPGFPlot(
+        [Temperaturen],
+        [KappaSammlung],
+        [0 for x in Temperaturen],
+        [uPauschal(KappaSammlung)],
+        [0],
+        ["Temperatur","Kappa"],
+        "$\\kappa(T)$",
+        "KappaTemperatur",
+        [1,0],
+        file
+    )
     
+with open(Dateipfad + "FreiheitTemperatur.tex","w") as file:
+    fileStandardPGFPlot(
+        [Temperaturen],
+        [FreiheitSammlung],
+        [0 for x in Temperaturen],
+        [uPauschal(FreiheitSammlung)],
+        [0],
+        ["Temperatur","Freiheit"],
+        "$f(T)$",
+        "FreiheitTemperatur",
+        [1,0],
+        file
+    )
