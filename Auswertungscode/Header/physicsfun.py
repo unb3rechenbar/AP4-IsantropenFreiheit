@@ -88,6 +88,13 @@ def dSchallKorrektur(a: Werttupel, r: Werttupel, v: Werttupel, c: Werttupel, h: 
     dv = mal(mal(mal(-a,c),mal(r,wurzel(math.pi))),inv(mal(wurzel(v),quadrat(plus(mal(mal(2,wurzel(mal(math.pi,v))),r),neg(a))))))
     
     Gradient = [da,dr,dv,dc]
+
+    for i in range(len(Gradient)):
+        Gradient[i].Einheit = ""
+        h[i].Einheit = ""
+        Gradient[i] = quadrat(Gradient[i])
+        h[i] = quadrat(h[i])
+
     return scpr(Gradient,h)
 
 def SchallFreierRaum(p: Werttupel, r: Werttupel, k: Werttupel):
@@ -110,6 +117,13 @@ def dSchallRohr(n: Werttupel, f: Werttupel, L: Werttupel, h: list):
     print(h[2])
     
     Gradient = [dn,df,dL]
+
+    for i in range(len(Gradient)):
+        Gradient[i].Einheit = ""
+        h[i].Einheit = ""
+        Gradient[i] = quadrat(Gradient[i])
+        h[i] = quadrat(h[i])
+
     return scpr(Gradient,h)
 
 def invSchallKorrektur(a: Werttupel, r: Werttupel, v: Werttupel, T: Werttupel, M: Werttupel, c: Werttupel):
@@ -123,3 +137,25 @@ def Freiheit(k: Werttupel):
 
 def dFreiheit(k: Werttupel, h: list):
     dk = mal(-2,inv(quadrat(plus(k,neg(1)))))
+    Gradient = [dk]
+
+    for i in range(len(Gradient)):
+        Gradient[i].Einheit = ""
+        h[i].Einheit = ""
+        Gradient[i] = quadrat(Gradient[i])
+        h[i] = quadrat(h[i])
+    
+    return scpr(Gradient, h)
+
+
+def dKappa3(c0: Werttupel, M: Werttupel, R: Werttupel, T: Werttupel, h: list):
+    Gradient = []
+    Gradient += [mal(2,mal(c0,mal(M,inv(mal(R,T)))))]
+
+    for i in range(len(Gradient)):
+        Gradient[i].Einheit = ""
+        h[i].Einheit = ""
+        Gradient[i] = quadrat(Gradient[i])
+        h[i] = quadrat(h[i])
+    
+    return scpr(Gradient, h)
