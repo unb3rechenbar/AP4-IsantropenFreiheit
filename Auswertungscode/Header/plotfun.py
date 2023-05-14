@@ -135,3 +135,12 @@ def StandardPGFPlot(
             exit()
     else:
         pass
+    
+def LatexTabelle(Ueberschriften: list, Werte: list):
+    tabularconfig = "c" * len(Werte[0])
+    FormatUeberschrift = " & ".join(Ueberschriften)
+    print("\\begin{table}[H]\m\t\\centering\n\t\\begin{tabular}" + tabularconfig + "\n\t\t" + FormatUeberschrift + "\\\\\n\t\t\\hline")
+    for i in range(len(Werte[0])):
+        print("\t\t" + " & ".join([s[i] for s in Werte]))
+    print("\t\\end{tabular}\n\\end{table}")
+            
