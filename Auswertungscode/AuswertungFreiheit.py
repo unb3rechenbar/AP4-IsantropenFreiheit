@@ -204,6 +204,10 @@ Maxima = [
     ]
 ]
 
+uMaxList = [
+    Werttupel(5,"Hz") for x in Maxima[0]
+]
+
 # ========================================
 # Vorbereitung: Umwandeln der Maxima in Werttupel
 for x in Maxima:
@@ -243,42 +247,41 @@ def Auswertungsprogramm(Daten,i,file):
     Schallgeschwindigkeiten = [
         SchallRohr(i + 1,x,Rohrlaenge) for i,x in enumerate(MaxList)
     ]
-    print([x.Wert for x in Schallgeschwindigkeiten])
+    uSchallgeschwindigkeiten = uPauschal(Schallgeschwindigkeiten)
     
     
     print("Aufgabe 3:")
     Korrekturen = [
         SchallKorrektur(KirchhoffK,RohrRadius,x,Schallgeschwindigkeiten[i]) for i,x in enumerate(MaxList)
     ]
-    print([x.Wert for x in Korrekturen])
+    uKorrekturen = uPauschal(Korrekturen)
     
     print("Aufgabe 4:")
     Kappas = [
         invSchallKorrektur(KirchhoffK,RohrRadius,x,KonstTemp,MolMasseCO2,Korrekturen[i]) for i,x in enumerate(MaxList)
     ]
-    print([x.Wert for x in Kappas])
+    uKappas = uPauschal(Kappas)
     
     Freiheiten = [
         Freiheit(k) for k in Kappas
     ]
-    print([x.Wert for x in Freiheiten])
+    uFreiheiten = uPauschal(Freiheiten)
     
     # Zusammenfassen
     with open(Dateipfad + "Tabellen/" + Reihenfolge[i] + ".tex","w") as tablefile:
         fileLatexTabelle(
-            ["c","C(c)","$\\kappa$","f"],
+            ["$\\nu$","c","C(c)","$\\kappa$","f"],
             [
                 [
-                    MaxList[i],
-                    Schallgeschwindigkeiten[i],
-                    Korrekturen[i],
-                    Kappas[i],
-                    Freiheiten[i]
+                    [MaxList[i],uMaxList[i]],
+                    [Schallgeschwindigkeiten[i],uSchallgeschwindigkeiten[i]],
+                    [Korrekturen[i],uKorrekturen[i]],
+                    [Kappas[i],uKappas[i]],
+                    [Freiheiten[i],uFreiheiten[i]]
                 ] for i in range(len(MaxList))
             ],
             tablefile
         )
-
 
 # ========================================
 # Auswertung: Abruf des Auswertungsprogramms für alle Messungen

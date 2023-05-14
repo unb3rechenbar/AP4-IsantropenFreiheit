@@ -211,13 +211,20 @@ def LatexTabelle(Ueberschriften: list, Werte: list):
         print("\t\t" + " & ".join([s[i] for s in Werte]))
     print("\t\\end{tabular}\n\\end{table}")
     
-def fileLatexTabelle(Ueberschriften: list, Werte: list, file):
+def fileLatexTabelle(Ueberschriften: list, Werte: list, file, r: int = 2):
+    """Tabellenerzeugung als File
+
+    Args:
+        Ueberschriften (list): Liste der Spaltenüberschriften in der ersten Zeile
+        Werte (list): Liste der Zeilen der Tabelle
+        file (_type_): Enthält Dateobjekt, in welches geschrieben wird
+    """
     tabularconfig = "c" * len(Werte[0])
     FormatUeberschrift = " & ".join(Ueberschriften)
     file.write("\\begin{table}[H]\n\t\\centering\n\t\\begin{tabular}{" + tabularconfig + "}\n\t\t" + FormatUeberschrift + "\\\\\n\t\t\\hline\n")
-    for i in range(len(Werte[0])):
+    for Zeile in Werte:
         file.write("\t\t" + " & ".join(
-            [str(s[i].Wert) if isinstance(s[i],Werttupel) else str(s[i]) for s in Werte]) + "\t\\\\\n"
+            [str(round(float(x),r)) if isinstance(x,Werttupel) else str(round(float(x[0]),r)) + "(" + str(round(float(x[1]),r)).replace(".","") + ")" for x in Zeile]) + "\t\\\\\n"
         )
     file.write("\t\\end{tabular}\n\\end{table}")
             

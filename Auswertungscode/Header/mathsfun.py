@@ -9,6 +9,8 @@ class Werttupel:
         self.Einheit = Einheit
     def __str__(self) -> str:
         return str(self.Wert) + " " + self.Einheit
+    def __float__(self) -> float:
+        return float(self.Wert)
 
 def uprint(uw: list) -> str:
     return str(uw[0]) + " ± " + str(uw[1])
