@@ -208,8 +208,8 @@ def Auswertungsprogramm(Daten):
     print([Daten[0],Daten[0]])
     
     StandardPGFPlot(
-        [Daten[0],Daten[0]],
-        [Daten[1],Daten[2]],
+        [Daten[0]],
+        [Daten[1]],
         [0 for y in Daten[0]],
         [[0 for y in Daten[1]]],
         [0],
