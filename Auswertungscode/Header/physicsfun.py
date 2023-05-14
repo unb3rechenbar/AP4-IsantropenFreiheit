@@ -101,6 +101,14 @@ def dSchallRohr(n: Werttupel, f: Werttupel, L: Werttupel, h: list):
     dL = mal(mal(inv(n),2),f)
     dn = mal(mal(mal(-1,inv(quadrat(n))),2),mal(f,L))
     
+    print("Unsicherheit von f:" + str(df))
+    print("Unsicherheit von L:" + str(dL))
+    print("Unsicherheit von n:" + str(dn))
+    
+    print(h[0])
+    print(h[1])
+    print(h[2])
+    
     Gradient = [dn,df,dL]
     return scpr(Gradient,h)
 

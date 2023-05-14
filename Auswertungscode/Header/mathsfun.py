@@ -236,6 +236,9 @@ def plus(W1: int or float or Werttupel,W2: int or float or Werttupel) -> int or 
         else:
             print("Skalar und Werttupel sind nicht addierbar!")
             exit(1)
+            
+    elif (W1.Wert == 0) and (W2.Wert == 0):
+        return Werttupel(0,"")
     else:
         if W1.Einheit == "":
             return Werttupel(W1.Wert + W2,W1.Einheit)
@@ -338,6 +341,8 @@ def scpr(W1: int or float or Werttupel or list or tuple, W2: int or float or Wer
         return Einheitenmagie(mal(W1,W2))
     elif (isinstance(W1,(list,tuple)) and isinstance(W2,(list,tuple))):
         if Dimensionsstruktur(W1) == Dimensionsstruktur(W2):
+            print([scpr(x,y).Wert for (x,y) in zip(W1,W2)])
+            print([scpr(x,y).Einheit for (x,y) in zip(W1,W2)])
             return wsum([scpr(x,y) for (x,y) in zip(W1,W2)])
         else:
             print("Dimensionsstrukturen stimmen nicht überein!")

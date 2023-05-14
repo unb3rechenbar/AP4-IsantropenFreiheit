@@ -247,7 +247,15 @@ def Auswertungsprogramm(Daten,i):
     Schallgeschwindigkeiten = [
         SchallRohr(i + 1,x,Rohrlaenge) for i,x in enumerate(MaxList)
     ]
-    uSchallgeschwindigkeiten = uPauschal(Schallgeschwindigkeiten)
+    uSchallgeschwindigkeiten = [
+        wUnsicherheit(
+            (SchallRohr,dSchallRohr),
+            (i + 1,x,Rohrlaenge),
+            (0,uMaxList[i],Werttupel(1,"cm"))
+        )[1] for i,x in enumerate(MaxList)
+    ]
+    
+    exit()
     
     # Aufgabe 3
     Korrekturen = [
