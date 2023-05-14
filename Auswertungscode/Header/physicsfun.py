@@ -79,13 +79,30 @@ def dGasdruck(p0: Werttupel, mS: Werttupel, g: Werttupel, r: Werttupel,h: list):
 def SchallKorrektur(a: Werttupel, r: Werttupel, v: Werttupel,c0: Werttupel):
     Bruch = Einheitenmagie(mal(a,inv(mal(mal(2,r),wurzel(mal(math.pi,v))))))
     Klammer = plus(1,neg(Bruch))
-    return mal(c0,Klammer)
+    return mal(c0,inv(Klammer))
+
+def dSchallKorrektur(a: Werttupel, r: Werttupel, v: Werttupel, c: Werttupel, h: list):
+    da = mal(mal(mal(2,c),mal(r,wurzel(mal(math.pi,v)))),inv(quadrat(plus(a,neg(mal(2,mal(r,wurzel(mal(math.pi,v)))))))))
+    dr = mal(mal(mal(-2,a),mal(c,wurzel(mal(math.pi,v)))),inv(quadrat(plus(mal(mal(2,wurzel(mal(math.pi,v))),r),neg(a)))))
+    dc = mal(mal(2,mal(wurzel(mal(math.pi,v)),r)),inv(plus(mal(mal(2,wurzel(mal(math.pi,v))),r),neg(a))))
+    dv = mal(mal(mal(-a,c),mal(r,wurzel(math.pi))),inv(mal(wurzel(v),quadrat(plus(mal(mal(2,wurzel(mal(math.pi,v))),r),neg(a))))))
+    
+    Gradient = [da,dr,dv,dc]
+    return scpr(Gradient,h)
 
 def SchallFreierRaum(p: Werttupel, r: Werttupel, k: Werttupel):
     return wurzel(mal(mal(p,inv(r)),k))
 
 def SchallRohr(n: Werttupel, f: Werttupel, L: Werttupel):
     return mal(mal(inv(n),2),mal(f,L))
+
+def dSchallRohr(n: Werttupel, f: Werttupel, L: Werttupel, h: list):
+    df = mal(mal(inv(n),2),L)
+    dL = mal(mal(inv(n),2),f)
+    dn = mal(mal(mal(-1,inv(quadrat(n))),2),mal(f,L))
+    
+    Gradient = [dn,df,dL]
+    return scpr(Gradient,h)
 
 def invSchallKorrektur(a: Werttupel, r: Werttupel, v: Werttupel, T: Werttupel, M: Werttupel, c: Werttupel):
     Bruch = Einheitenmagie(mal(a,inv(mal(mal(2,r),wurzel(mal(math.pi,v))))))
@@ -95,3 +112,6 @@ def invSchallKorrektur(a: Werttupel, r: Werttupel, v: Werttupel, T: Werttupel, M
 
 def Freiheit(k: Werttupel):
     return mal(2,inv(plus(k,neg(1))))
+
+def dFreiheit(k: Werttupel, h: list):
+    dk = mal(-2,inv(quadrat(plus(k,neg(1)))))

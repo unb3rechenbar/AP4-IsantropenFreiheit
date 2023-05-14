@@ -176,7 +176,7 @@ def fileStandardPGFPlot(
         else:
             file.write("Fehlerhafte Konfigurationsanweisung!")
             exit()
-        file.write("\t\\centering\n\t\\begin{tikzpicture}\n\t\t\\pgfplotsset{width=6.5cm,compat=1.3,legend style={font=\\footnotesize}}\n\t\t\\begin{axis}[xlabel={" + Labels[0] + "},ylabel={" + Labels[1] + "},legend cell align=left,legend pos=north west]\n\t\t")      
+        file.write("\t\\centering\n\t\\begin{tikzpicture}\n\t\t\\pgfplotsset{width=10cm,legend style={font=\\footnotesize}}\n\t\t\\begin{axis}[xlabel={" + Labels[0] + "},ylabel={" + Labels[1] + "},legend cell align=left,legend pos=north west]\n\t\t")      
         for i,(x,y) in enumerate(zip(X,Y)):
             file.write("\\addplot+[only marks,color=" + colors[i % len(colors)] + ",mark=square,error bars/.cd,x dir=both,x explicit,y dir=both,y explicit,error bar style={color=black}] table[x=X,y=Y,x error=xerror,y error=yerror,row sep=\\\\]{\n")
             Tabellenblock(x,y,Xerror,Yerror[i])
@@ -224,7 +224,7 @@ def fileLatexTabelle(Ueberschriften: list, Werte: list, file, r: int = 2):
     file.write("\\begin{table}[H]\n\t\\centering\n\t\\begin{tabular}{" + tabularconfig + "}\n\t\t" + FormatUeberschrift + "\\\\\n\t\t\\hline\n")
     for Zeile in Werte:
         file.write("\t\t" + " & ".join(
-            [str(round(float(x),r)) if isinstance(x,Werttupel) else str(round(float(x[0]),r)) + "(" + str(round(float(x[1]),r)).replace(".","") + ")" for x in Zeile]) + "\t\\\\\n"
+            [str(round(float(x),r)) if isinstance(x,(Werttupel,int,float)) else str(round(float(x[0]),r)) + "(" + str(round(float(x[1]),r)).replace(".","") + ")" for x in Zeile]) + "\t\\\\\n"
         )
     file.write("\t\\end{tabular}\n\\end{table}")
             
