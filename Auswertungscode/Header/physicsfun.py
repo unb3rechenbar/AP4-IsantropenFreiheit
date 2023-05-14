@@ -30,11 +30,16 @@ def Kappa1(m: Werttupel, V: Werttupel, T: Werttupel, p: Werttupel, r: Werttupel)
 def dKappa1(m: Werttupel, V: Werttupel, T: Werttupel, p: Werttupel, r: Werttupel,h: list):
     Gradient = []
     Gradient += [mal(4,mal(V,inv(mal(quadrat(T),mal(p,quadrat(quadrat(r)))))))] # Ableitung nach m
-    print(Gradient)
     Gradient += [mal(4,mal(m,inv(mal(quadrat(T),mal(p,quadrat(quadrat(r)))))))] # Ableitung nach V
     Gradient += [mal(mal(4,mal(m,V)),mal(-2,inv(mal(mal(T,quadrat(T)),mal(p,quadrat(quadrat(r)))))))] # Ableitung nach T
     Gradient += [mal(mal(mal(4,mal(m,V)),inv(mal(quadrat(T),quadrat(quadrat(r))))),mal(-1,inv(quadrat(p))))] # Ableitung nach p  
     Gradient += [mal(mal(mal(4,mal(m,V)),inv(mal(quadrat(T),p))),mal(-4,inv(mal(r,quadrat(quadrat(r))))))] # Ableitung nach r
+
+    for i in range(len(Gradient)):
+        Gradient[i].Einheit = ""
+        h[i].Einheit = ""
+        Gradient[i] = quadrat(Gradient[i])
+        h[i] = quadrat(h[i])
 
     return scpr(Gradient,h)
 
@@ -53,12 +58,18 @@ def Gasdruck(p0: Werttupel, mS: Werttupel, g: Werttupel, r: Werttupel):
 
 def dGasdruck(p0: Werttupel, mS: Werttupel, g: Werttupel, r: Werttupel,h: list):
     Gradient = []
-    Gradient += [1] # Ableitung nach p0
+    Gradient += [Werttupel(1,"")] # Ableitung nach p0
     Gradient += [mal(g,inv(mal(math.pi,quadrat(r))))] # Ableitung nach mS
     Gradient += [mal(mS,inv(mal(math.pi,quadrat(r))))] # Ableitung nach g
     Gradient += [mal(mal(mal(mS,g),inv(math.pi)),mal(-2,inv(mal(r,quadrat(r)))))] # Ableitung nach r
 
     # print(Gradient[1])
+
+    for i in range(len(Gradient)):
+        Gradient[i].Einheit = ""
+        h[i].Einheit = ""
+        Gradient[i] = quadrat(Gradient[i])
+        h[i] = quadrat(h[i])
 
     return scpr(Gradient,h) 
 

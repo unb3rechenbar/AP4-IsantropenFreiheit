@@ -19,18 +19,20 @@ print(HoehenCO2[1][3])
 # --- Aufgabe 1 ---
 Auussentemperatur = Werttupel(21,"deg")
 Luftdruck = Werttupel(963.2,"hPa")
-MasseSchwingkoerper = Werttupel(0.5,"kg") # Anpassen
-Glasrohrradius = Werttupel(0.5,"mm") # Anpassen
+MasseSchwingkoerper = Werttupel(0.00987,"kg")
+uMasseSchwingkoerper = Werttupel(0.0001,"kg")
+Glasrohrradius = Werttupel(4.960,"mm") 
+uGlasrohrradius = Werttupel(0.01,"mm") 
 
 EffektivesVolumen = [
-    Werttupel(0.5,"l"),
-    Werttupel(0.5,"l"),
-    Werttupel(0.5,"l")    
+    (Werttupel(2182,"cm^3"),Werttupel(1, "cm^3")),
+    (Werttupel(2182,"cm^3"),Werttupel(1, "cm^3")),
+    (Werttupel(2182,"cm^3"),Werttupel(1, "cm^3")),    
 ] # Anpassen
 Schwingdauer = [
-    RueckFlammAr[1],
-    RueckFlammCO2[1],
-    RueckFlammN2[1] 
+    (mal(RueckFlammAr[1],1/300), Werttupel(1/300,"s")),
+    (mal(RueckFlammCO2[1],1/300), Werttupel(1/300,"s")),
+    (mal(RueckFlammN2[1],1/300),Werttupel(20/300,"s")) 
 ]
 
 def Adiabateniteration(Veff: Werttupel, Ts: Werttupel):
@@ -49,44 +51,47 @@ def Adiabateniteration(Veff: Werttupel, Ts: Werttupel):
         Glasrohrradius,
         [
             Werttupel(5,"hPa"),
-            Werttupel(0.01,"kg"),
+            uMasseSchwingkoerper,
             Werttupel(0.01,"m/s^2"),
-            Werttupel(0.1,"mm")
+            uGlasrohrradius
         ]
     )
 
     Kappa = Kappa1(
         MasseSchwingkoerper,
-        Veff,
-        Ts,
+        Veff[0],
+        Ts[0],
         GleichgewichtsDruck,
         Glasrohrradius
     )
 
-    # dKappa = dKappa1(
-    #     MasseSchwingkoerper,
-    #     Veff,
-    #     Ts,
-    #     GleichgewichtsDruck,
-    #     Glasrohrradius,
-    #     [
-    #         Werttupel(0.01,"kg"),
-    #         uPauschal(Veff),
-    #         uPauschal(Ts),
-    #         dGleichgewichtsDruck,
-    #         Werttupel(0.1,"mm")
-    #     ]
-    # )
+    dKappa = dKappa1(
+         MasseSchwingkoerper,
+         Veff[0],
+         Ts[0],
+         GleichgewichtsDruck,
+         Glasrohrradius,
+        [
+             Werttupel(0.01,"kg"),
+             Veff[1],
+             Ts[1],
+             dGleichgewichtsDruck,
+             uGlasrohrradius
+         ]
+    )
     # exit()
     
-    dKappa = uPauschal(Kappa)
-    
+    # dKappa = uPauschal(Kappa)
     return (Kappa,dKappa)
     
 # --- Iteration ---
 Namen = ["Argon","Kohlenstoffdioxid","Stickstoff"]
+MagischerSIFaktor = 10**6
 for i in range(3):
-    print("Der Adiabatenexponent für " + Namen[i] + " lautet " + str(Adiabateniteration(EffektivesVolumen[i],Schwingdauer[i])[0]) + " ± " + str(Adiabateniteration(EffektivesVolumen[i],Schwingdauer[i])[1]) + ".")
+    Exponent = Adiabateniteration(EffektivesVolumen[i],Schwingdauer[i])
+    #print(Exponent)
+    print("Der Adiabatenexponent für " + Namen[i] + " lautet " + str(mal(MagischerSIFaktor, Exponent[0]))
+           + " ± " + str(mal(MagischerSIFaktor, Exponent[1])) + ".")
     
 # --- Aufgabe 2 ---
 Hoehenunsicherheit = Werttupel(3,"mm")
