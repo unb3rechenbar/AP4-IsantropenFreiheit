@@ -100,8 +100,15 @@ def StandardPGFPlot(
     if Conf[0] != 0:
         def Tabellenblock(X,Y,Xerror,Yerror):
             print("\t\t\tX\tY\txerror\tyerror\t\\\\")
-            for i in range(0,len(X)):
-                print("\t\t\t" , X[i] , "\t" , Y[i] , "\t" , Xerror[i] , "\t" , Yerror[i] , "\t\\\\")
+            for i,x in enumerate(X):
+                if isinstance(x,Werttupel) and isinstance(Y[i],Werttupel):
+                    print("\t\t\t" , x.Wert , "\t" , Y[i].Wert , "\t" , Xerror[i], "\t" , Yerror[i], "\t\\\\")
+                elif isinstance(x,Werttupel):
+                    print("\t\t\t" , x.Wert , "\t" , Y[i] , "\t" , Xerror[i] , "\t" , Yerror[i] , "\t\\\\")
+                elif isinstance(Y[i],Werttupel):
+                    print("\t\t\t" , x , "\t" , Y[i].Wert , "\t" , Xerror[i] , "\t" , Yerror[i] , "\t\\\\")
+                else:
+                    print("\t\t\t" , x , "\t" , Y[i] , "\t" , Xerror[i] , "\t" , Yerror[i] , "\t\\\\")
         if Conf[1] == 0:
             print("\\begin{figure}[H]\n")
         elif Conf[1] == 1:

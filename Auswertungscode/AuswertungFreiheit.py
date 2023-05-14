@@ -39,6 +39,25 @@ RohrRadius = mal(0.5,plus(Werttupel(18.5,"mm"),neg(Werttupel(3,"mm"))))
 KonstTemp = Werttupel(300,"K")
 MolMasseCO2 = Werttupel(44.01,"g/mol")
 
+# ========================================
+# Vorbereitung: Zusammenfassen der Temperaturmessungen
+Temperaturmessungen = [
+    DatenRohr,
+    cRead("../MessungenFreiheit/teil10/73.dat"),
+    cRead("../MessungenFreiheit/teil10/68.dat"),
+    cRead("../MessungenFreiheit/teil10/63.dat"),
+    cRead("../MessungenFreiheit/teil10/58.dat"),
+    cRead("../MessungenFreiheit/teil10/53.dat"),
+    cRead("../MessungenFreiheit/teil10/38.dat"),
+    cRead("../MessungenFreiheit/teil10/31.dat"),
+    cRead("../MessungenFreiheit/teil10/15.dat"),
+    cRead("../MessungenFreiheit/teil10/10.dat"),
+    cRead("../MessungenFreiheit/teil10/4.dat"),
+    cRead("../MessungenFreiheit/teil10/0.dat")
+]
+
+print(len(Temperaturmessungen))
+
 
 # ========================================
 # Vorbereitung: Händisches Ablesen der Maxima
@@ -167,8 +186,6 @@ Maxima = [
 ]
 
 
-
-
 # Aufgabe 1
 
 
@@ -182,18 +199,38 @@ Maxima = [
 print([x.Wert for x in Spaltenauswahl(mDatenRohr,0)])
 
 def Auswertungsprogramm(Daten):
+    """Auswertungsprogramm
 
+    Args:
+        Daten (list): Enthält Datenpaar (WertelisteX, WertelisteY, MaximalisteX)
+    """
+    
+    print([Daten[0],Daten[0]])
+    
     StandardPGFPlot(
-        [[x.Wert for x in Spaltenauswahl(DatenUmgebung,0)],[x.Wert for x in Spaltenauswahl(mDatenUmgebung,0)]],
-        [[y.Wert for y in Spaltenauswahl(DatenUmgebung,1)],[y.Wert for y in Spaltenauswahl(mDatenUmgebung,1)]],
-        [0 for x in Spaltenauswahl(DatenUmgebung,0)],
-        [[0 for y in Spaltenauswahl(DatenUmgebung,1)], [0 for y in Spaltenauswahl(mDatenUmgebung,1)]],
-        [0,0],
+        [Daten[0],Daten[0]],
+        [Daten[1],Daten[2]],
+        [0 for y in Daten[0]],
+        [[0 for y in Daten[1]]],
+        [0],
         ["Frequenz","Dezibel - Volt"],
         "Umgebung",
         "Umgebungsmessung",
         [1,0]
     )
+
+
+for i,x in enumerate(Maxima):
+    # print(x)
+    # print(WertSpaltenauswahl(Temperaturmessungen[i],0))
+    # print(WertSpaltenauswahl(Temperaturmessungen[i],1))
+    
+    X = Spaltenauswahl(Temperaturmessungen[i],0)
+    Y = Spaltenauswahl(Temperaturmessungen[i],1)
+    
+    Auswertungsprogramm((X,Y,x))
+
+exit()
 
 
 print([x.Wert for x in MaximaFrequenzen])
