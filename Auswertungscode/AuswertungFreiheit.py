@@ -26,6 +26,25 @@ from plotfun import *
 
 # => Total 12 Messungen, card(I) = 12
 
+Reihenfolge = [
+    "ÜbungsMessung",
+    "Temperaturmessung 73 Grad",
+    "Temperaturmessung 68 Grad",
+    "Temperaturmessung 63 Grad",
+    "Temperaturmessung 58 Grad",
+    "Temperaturmessung 53 Grad",
+    "Temperaturmessung 38 Grad",
+    "Temperaturmessung 31 Grad",
+    "Temperaturmessung 15 Grad",
+    "Temperaturmessung 10 Grad",
+    "Temperaturmessung 4 Grad",
+    "Temperaturmessung 0 Grad"
+]
+
+# ========================================
+# Vorbereitung: Festlegen des Speicherortes
+Dateipfad = "../Versuchsbericht/Sektionen/AuswertungsergebnisseFreiheit/"
+
 # ========================================
 # Vorbereitung: Einlesen der Daten
 DatenUmgebung = cRead("../MessungenFreiheit/teil6.dat")
@@ -185,76 +204,99 @@ Maxima = [
     ]
 ]
 
+uMaxList = [
+    Werttupel(5,"Hz") for x in Maxima[0]
+]
 
-# Aufgabe 1
+# ========================================
+# Vorbereitung: Umwandeln der Maxima in Werttupel
+for x in Maxima:
+    for y in x:
+        if isinstance(y, Werttupel):
+            continue
+        else:
+            x[x.index(y)] = Werttupel(y,"Hz")
 
 
+# ========================================
+# Auswertung: Definition des Auswertungsprogramms
 
-# Aufgabe 2
-# Kugelradius = 10
-# MaximaFrequenzen = [
-#     x.Wert if all(abs(x.Wert - y) > Kugelradius for y in [z.Wert for z in Spaltenauswahl(mDatenUmgebung,0)]) else None for x in Spaltenauswahl(mDatenRohr,0)
-# ]
-
-print([x.Wert for x in Spaltenauswahl(mDatenRohr,0)])
-
-def Auswertungsprogramm(Daten):
+def Auswertungsprogramm(Daten,i,file):
     """Auswertungsprogramm
 
     Args:
         Daten (list): Enthält Datenpaar (WertelisteX, WertelisteY, MaximalisteX)
     """
     
-    print([Daten[0],Daten[0]])
+    # Aufgabe 1
+    with open(Dateipfad + "Graphen/" + Reihenfolge[i] + ".tex","w") as graphfile:
+        fileStandardPGFPlot(
+            [Daten[0]],
+            [Daten[1]],
+            [0 for y in Daten[0]],
+            [[0 for y in Daten[1]]],
+            [0],
+            ["Frequenz","Dezibel - Volt"],
+            "Umgebung",
+            "Umgebungsmessung",
+            [1,0],
+            graphfile
+        )
     
-    StandardPGFPlot(
-        [Daten[0]],
-        [Daten[1]],
-        [0 for y in Daten[0]],
-        [[0 for y in Daten[1]]],
-        [0],
-        ["Frequenz","Dezibel - Volt"],
-        "Umgebung",
-        "Umgebungsmessung",
-        [1,0]
-    )
-
-
-for i,x in enumerate(Maxima):
-    # print(x)
-    # print(WertSpaltenauswahl(Temperaturmessungen[i],0))
-    # print(WertSpaltenauswahl(Temperaturmessungen[i],1))
+    file.write("Aufgabe 2:")
+    Schallgeschwindigkeiten = [
+        SchallRohr(i + 1,x,Rohrlaenge) for i,x in enumerate(MaxList)
+    ]
+    uSchallgeschwindigkeiten = uPauschal(Schallgeschwindigkeiten)
     
-    X = Spaltenauswahl(Temperaturmessungen[i],0)
-    Y = Spaltenauswahl(Temperaturmessungen[i],1)
     
-    Auswertungsprogramm((X,Y,x))
+    print("Aufgabe 3:")
+    Korrekturen = [
+        SchallKorrektur(KirchhoffK,RohrRadius,x,Schallgeschwindigkeiten[i]) for i,x in enumerate(MaxList)
+    ]
+    uKorrekturen = uPauschal(Korrekturen)
+    
+    print("Aufgabe 4:")
+    Kappas = [
+        invSchallKorrektur(KirchhoffK,RohrRadius,x,KonstTemp,MolMasseCO2,Korrekturen[i]) for i,x in enumerate(MaxList)
+    ]
+    uKappas = uPauschal(Kappas)
+    
+    Freiheiten = [
+        Freiheit(k) for k in Kappas
+    ]
+    uFreiheiten = uPauschal(Freiheiten)
+    
+    # Zusammenfassen
+    with open(Dateipfad + "Tabellen/" + Reihenfolge[i] + ".tex","w") as tablefile:
+        fileLatexTabelle(
+            ["$\\nu$","c","C(c)","$\\kappa$","f"],
+            [
+                [
+                    [MaxList[i],uMaxList[i]],
+                    [Schallgeschwindigkeiten[i],uSchallgeschwindigkeiten[i]],
+                    [Korrekturen[i],uKorrekturen[i]],
+                    [Kappas[i],uKappas[i]],
+                    [Freiheiten[i],uFreiheiten[i]]
+                ] for i in range(len(MaxList))
+            ],
+            tablefile
+        )
 
-exit()
+# ========================================
+# Auswertung: Abruf des Auswertungsprogramms für alle Messungen
 
+for i,MaxList in enumerate(Maxima):
+    
+    with open(Dateipfad + Reihenfolge[i] + ".txt","w") as file:
+        file.write(
+            "========================================\n"
+            + "Messung " + str(i) + ": " + Reihenfolge[i] + "\n"
+            + "========================================"
+        )
 
-print([x.Wert for x in MaximaFrequenzen])
+        X = Spaltenauswahl(Temperaturmessungen[i],0)
+        Y = Spaltenauswahl(Temperaturmessungen[i],1)
 
-Schallgeschwindigkeiten = [
-    SchallRohr(i + 1,x,Rohrlaenge) for i,x in enumerate(MaximaFrequenzen)
-]
-print([x.Wert for x in Schallgeschwindigkeiten])
-
-
-# Aufgabe 3
-Korrekturen = [
-    SchallKorrektur(KirchhoffK,RohrRadius,x,Schallgeschwindigkeiten[i]) for i,x in enumerate(MaximaFrequenzen)
-]
-print([x.Wert for x in Korrekturen])
-
-# Aufgabe 4
-Kappas = [
-    invSchallKorrektur(KirchhoffK,RohrRadius,x,KonstTemp,MolMasseCO2,Korrekturen[i]) for i,x in enumerate(MaximaFrequenzen)
-]
-print([x.Wert for x in Kappas])
-
-Freiheiten = [
-    Freiheit(k) for k in Kappas
-]
-print([x.Wert for x in Freiheiten])
-
+        Auswertungsprogramm((X,Y,MaxList),i,file)
+    
