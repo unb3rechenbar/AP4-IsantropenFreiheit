@@ -1,6 +1,23 @@
 \documentclass[../main.tex]{subfiles}
 \begin{document}
     \subsection{Isentropic exponent}
+        Table \ref{fig:ResultsIsentropic} shows the results for the isentropic exponent, for two different approches.
+        \begin{table}[H]
+            \centering
+            \begin{tabular}{c|cc|c}
+                \textbf{Gas} & \textbf{Rüchhardt \& Flammersfeld} & \textbf{Clément \& Desormes} & \textbf{Lit. value}\\
+                \hline
+                $\text{Ar}$ & 1.808 & 4.12(46)  & 1.648\\
+                $\text{CO}_2$ & 1.406 & 3.42(18) & 1.401\\
+                $\text{N}_2$ & 0.921 & 3.84(32) & 1.293\\
+            \end{tabular}
+            \caption{Experimentally determined values (see \ref{sec:ClementDesormes}, \ref{sec:RuchhartFlammersfeld}) and literatur values of $\kappa$}
+            \caption{tab:ResultsIsentropic}
+        \end{table}
+        \noindent The first row of data has a neglible uncertainty, but is incompatible with literatur values. This leads to the assumption there were larger uncertainties we had not properly considered. Most likely, the filtering false resonance frequencies (i.e. sound intensity peaks that were only caused by ambience noise) was less exact than anticipated.\\
+
+        \noindent The second row of data has values notable twice or thrice as big as literatur values. Possible causes might have been air bubles in water pillers used to determine pressure differences, or problems with filling the gas into the setup. The latter might have caused an impure gas-phase.
+
         
 
     \subsection{Degrees of freedom}
